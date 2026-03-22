@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip show:*)",
+      "Bash(pip install:*)",
+      "Bash(pip3 install:*)",
+      "Bash(pip-compile requirements.in)",
+      "Bash(python3 -m piptools compile requirements.in)",
+      "Bash(mkdir -p /Users/nakatayouichi/dev/aws-template/aws-lambda)",
+      "Bash(cdk init:*)",
+      "Bash(echo \"exit: $?\")"
+    ]
+  }
+}
