@@ -1,0 +1,28 @@
+{
+  "project": {
+    "name": "ecs-lambda",
+    "stage": "dev",
+    "description": "EventBridge triggered Lambda (Container Image) with S3"
+  },
+  "stack": {
+    "s3": {
+      "bucketName": "data-processing-sample-dev-123456"
+    },
+    "logs": {
+      "retentionDays": 7
+    },
+    "lambda": {
+      "functionName": "data-processor",
+      "architecture": "ARM64",
+      "memorySize": 512,
+      "timeoutSeconds": 60,
+      "environment": {
+        "LOG_LEVEL": "INFO"
+      }
+    },
+    "eventBridge": {
+      "scheduleExpression": "rate(1 hour)",
+      "enabled": false
+    }
+  }
+}
