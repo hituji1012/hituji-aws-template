@@ -38,16 +38,9 @@ export class EcsWebappStack extends cdk.Stack {
       ],
     });
 
-    executionRole.addToPolicy(
-      new iam.PolicyStatement({
-        actions: ['logs:CreateLogStream', 'logs:PutLogEvents'],
-        resources: ['*'],
-      })
-    );
-
     // CloudWatch Logs
     const logGroup = new logs.LogGroup(this, 'LogGroup', {
-      logGroupName: stack.logs.logGroupName,
+      logGroupName: `/ecs/${project.name}-${project.stage}`,
       retention: stack.logs.retentionDays,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });

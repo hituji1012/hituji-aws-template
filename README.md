@@ -135,6 +135,8 @@ graph LR
 - `app-config.json` で CPU・メモリ・タスク数を簡単に変更できる
 - CDK DockerImageAsset でイメージのビルド〜ECR プッシュ〜デプロイを一括で行う
 
+> **注意:** このテンプレートは HTTP:80 のみ対応です。本番利用や機密情報を扱う場合は HTTPS（ACM + ALB リスナー）を別途追加してください。
+
 詳細は [ecs-webapp/README.md](./ecs-webapp/README.md) を参照
 
 ---

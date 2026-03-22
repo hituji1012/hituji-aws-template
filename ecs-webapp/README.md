@@ -28,7 +28,7 @@ graph TD
     end
 
     ALB -->|HTTP :80\nALB SG only| ECS
-    ECS -->|Push logs| CWL["CloudWatch Logs\n/ecs/web-app"]
+    ECS -->|Push logs| CWL["CloudWatch Logs\n/ecs/{name}-{stage}"]
     ECS -->|Pull image| ECR["ECR\n(DockerImageAsset)"]
 
     style Internet fill:#f5f5f5,stroke:#999
@@ -43,7 +43,7 @@ graph TD
 | VPC | 2AZ / NAT×1 / public・private サブネット |
 | ALB | インターネット公開 / HTTP:80 |
 | ECS | Fargate / 256CPU / 512MiB / desiredCount:1 |
-| CloudWatch Logs | `/ecs/web-app` / 7日保持 |
+| CloudWatch Logs | `/ecs/{name}-{stage}` / 7日保持 |
 | ECR | CDK DockerImageAsset で自動プッシュ |
 
 ---
@@ -120,7 +120,7 @@ npm install
   },
   "stack": {
     "vpc": { "maxAzs": 2, "natGateways": 1 },
-    "logs": { "logGroupName": "/ecs/web-app", "retentionDays": 7 },
+    "logs": { "retentionDays": 7 },
     "ecs": { "clusterName": "web-app-cluster", "cpu": 256, "memoryLimitMiB": 512, "desiredCount": 1, "containerPort": 80 },
     "alb": { "port": 80 }
   }
@@ -169,6 +169,14 @@ docker build -t ecs-webapp .
 docker run -p 8080:80 ecs-webapp
 # → http://localhost:8080
 ```
+
+---
+
+## 注意事項
+
+> **このテンプレートは HTTP のみ対応です（HTTPS 非対応）。**
+> ALB のリスナーは HTTP:80 のみで、TLS 終端は含まれていません。
+> 本番利用や機密情報を扱う場合は、ACM 証明書と HTTPS リスナーを別途追加してください。
 
 ---
 

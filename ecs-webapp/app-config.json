@@ -10,7 +10,6 @@
       "natGateways": 1
     },
     "logs": {
-      "logGroupName": "/ecs/web-app",
       "retentionDays": 7
     },
     "ecs": {

@@ -17,7 +17,6 @@ export class EcsLambdaStack extends cdk.Stack {
 
     // S3
     const bucket = new s3.Bucket(this, 'DataBucket', {
-      bucketName: stack.s3.bucketName,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
     });
@@ -34,13 +33,6 @@ export class EcsLambdaStack extends cdk.Stack {
       new iam.PolicyStatement({
         actions: ['s3:GetObject', 's3:PutObject', 's3:DeleteObject', 's3:ListBucket'],
         resources: [bucket.bucketArn, `${bucket.bucketArn}/*`],
-      })
-    );
-
-    executionRole.addToPolicy(
-      new iam.PolicyStatement({
-        actions: ['logs:CreateLogStream', 'logs:PutLogEvents'],
-        resources: ['*'],
       })
     );
 

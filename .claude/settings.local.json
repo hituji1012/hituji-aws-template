@@ -9,7 +9,8 @@
       "Bash(mkdir -p /Users/nakatayouichi/dev/aws-template/aws-lambda)",
       "Bash(cdk init:*)",
       "Bash(echo \"exit: $?\")",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(git submodule:*)"
     ]
   }
 }

@@ -5,9 +5,6 @@
     "description": "EventBridge triggered Lambda (Container Image) with S3"
   },
   "stack": {
-    "s3": {
-      "bucketName": "data-processing-sample-dev-123456"
-    },
     "logs": {
       "retentionDays": 7
     },
