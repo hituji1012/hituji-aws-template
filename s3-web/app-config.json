@@ -1,0 +1,21 @@
+{
+  "project": {
+    "name": "s3-web",
+    "stage": "dev",
+    "description": "S3 Static Website Hosting with CloudFront"
+  },
+  "buckets": [
+    {
+      "id": "MainSite",
+      "bucketName": "hituji-website",
+      "indexDocument": "index.html",
+      "errorDocument": "error.html",
+      "cloudfront": {
+        "enabled": true,
+        "priceClass": "PriceClass_100",
+        "defaultTtlSeconds": 86400,
+        "maxTtlSeconds": 31536000
+      }
+    }
+  ]
+}
