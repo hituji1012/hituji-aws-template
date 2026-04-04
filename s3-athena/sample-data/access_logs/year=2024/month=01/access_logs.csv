@@ -1,0 +1,11 @@
+request_id,method,path,status_code,response_time_ms,user_agent,ip_address,requested_at
+req_00001,GET,/api/products,200,45,Mozilla/5.0 (Macintosh),203.0.113.10,2024-01-05 09:00:01
+req_00002,GET,/api/products/prod_A,200,32,Mozilla/5.0 (iPhone),203.0.113.11,2024-01-05 09:00:15
+req_00003,POST,/api/orders,201,120,Mozilla/5.0 (Macintosh),203.0.113.10,2024-01-05 09:20:10
+req_00004,GET,/api/users/user_003,401,12,curl/7.68.0,198.51.100.5,2024-01-06 03:15:00
+req_00005,GET,/api/products,200,55,Mozilla/5.0 (Windows),203.0.113.20,2024-01-07 14:00:33
+req_00006,GET,/api/orders/ord_0001,200,38,Mozilla/5.0 (Macintosh),203.0.113.10,2024-01-08 10:05:44
+req_00007,DELETE,/api/orders/ord_0004,200,90,Mozilla/5.0 (Android),203.0.113.30,2024-01-15 18:31:05
+req_00008,GET,/api/products/prod_Z,404,8,Mozilla/5.0 (Windows),203.0.113.20,2024-01-18 09:45:22
+req_00009,POST,/api/orders,500,3200,Mozilla/5.0 (iPhone),203.0.113.11,2024-01-20 22:10:01
+req_00010,GET,/api/products,200,41,Mozilla/5.0 (Macintosh),203.0.113.10,2024-01-22 08:59:58

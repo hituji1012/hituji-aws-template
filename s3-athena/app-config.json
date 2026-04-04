@@ -1,0 +1,18 @@
+{
+  "project": {
+    "name": "s3-athena",
+    "stage": "dev",
+    "description": "S3 Data Lake with Athena Analytics"
+  },
+  "bucket": {
+    "id": "DataLake",
+    "bucketName": "hituji-datalake",
+    "versioned": false
+  },
+  "athena": {
+    "workgroupName": "hituji-analytics",
+    "databaseName": "hituji_analytics_db",
+    "dataPrefix": "data/",
+    "resultsPrefix": "athena-results/"
+  }
+}
